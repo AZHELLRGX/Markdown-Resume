@@ -4,12 +4,12 @@
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 <title>Resume</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
@@ -22,14 +22,15 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-#write li > figure:first-child { margin-top: -20px; }
+#write li > figure:last-child { margin-bottom: 0.5rem; }
 #write ol, #write ul { position: relative; }
 img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
 #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
 h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
 p { orphans: 4; }
 h1 { font-size: 2rem; }
@@ -52,6 +53,7 @@ thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
 table.md-table td { min-width: 32px; }
 .CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
 .CodeMirror { text-align: left; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
@@ -86,7 +88,6 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -99,7 +100,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 [contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
 .md-task-list-item { position: relative; list-style-type: none; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
@@ -135,12 +136,12 @@ a.md-print-anchor { white-space: pre !important; border-width: initial !importan
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
 .os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
 [lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
@@ -152,17 +153,19 @@ iframe { max-width: 100%; width: 100%; border: none; }
 content { margin-top: 0px !important; padding-top: 0px !important; }
 a { color: rgb(0, 0, 0); }
 h1, h2 { border-bottom: 1px solid rgb(238, 238, 238) !important; margin-bottom: 3px !important; padding-bottom: 3px !important; }
-h2 img { width: 26px !important; }
+h2 img { width: 16px !important; }
 h2 { font-size: 17px !important; }
-p { margin-bottom: 2px !important; margin-top: 2px !important; font-size: 14px !important; }
+p { margin-bottom: 2px !important; margin-top: 2px !important; }
 ul { margin-top: 2px !important; margin-bottom: 2px !important; }
 li p { margin-bottom: 0px !important; }
+li.md-list-item { line-height: 20px !important; }
+a { color: rgb(85, 85, 85) !important; }
 :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
 html { font-size: 16px; }
 body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
 #write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
 #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
-a { color: rgb(85, 85, 85); }
+a { color: rgb(65, 131, 196); }
 h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
 h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
 h1 tt, h1 code { font-size: inherit; }
@@ -172,7 +175,11 @@ h4 tt, h4 code { font-size: inherit; }
 h5 tt, h5 code { font-size: inherit; }
 h6 tt, h6 code { font-size: inherit; }
 h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); font-size: 20px !important; }
+h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+h3 { font-size: 1.5em; line-height: 1.43; }
+h4 { font-size: 1.25em; }
+h5 { font-size: 1em; }
+h6 { font-size: 1em; color: rgb(119, 119, 119); }
 p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
 li > ol, li > ul { margin: 0px; }
 hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
@@ -198,7 +205,7 @@ code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
 @media print {
   html { font-size: 13px; }
   table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
+  pre { overflow-wrap: break-word; }
 }
 .md-fences { background-color: rgb(248, 248, 248); }
 #write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
@@ -224,47 +231,32 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .dropdown-menu .divider { border-color: rgb(229, 229, 229); }
 
 
-@media print {
-  #write { padding-top: 0px !important; padding-bottom: 20px !important; }
-  content { margin-top: 0px !important; padding-top: 0px !important; }
-  a { color: rgb(0, 0, 0); }
-  h1, h2 { border-bottom: 1px solid rgb(238, 238, 238) !important; margin-bottom: 3px !important; padding-bottom: 3px !important; }
-  h2 img { width: 16px !important; }
-  h2 { font-size: 17px !important; }
-  p { margin-bottom: 2px !important; margin-top: 2px !important; }
-  ul { margin-top: 2px !important; margin-bottom: 2px !important; }
-  li p { margin-bottom: 0px !important; }
-}
-
-
-
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
 </head>
 <body class='typora-export os-windows' >
 <div  id='write'  class = 'is-node'> <center>
-     <h1>XXX</h1>
+     <h1>饶舸璇</h1>
      <div>
          <span>
-             <img src="assets/phone-solid.svg" width="18px" onerror="this.style.display = 'none';">
-             180XXXXXXXX
+             <img src="assets/phone-solid.svg" width="18px">
+             18271321721
          </span>
          ·
          <span>
-             <img src="assets/envelope-solid.svg" width="18px" onerror="this.style.display = 'none';">
-             zhengyc101@163.com
+             <img src="assets/envelope-solid.svg" width="18px">
+             r776379772@gmail.com
          </span>
          ·
          <span>
-             <img src="assets/github-brands.svg" width="18px" onerror="this.style.display = 'none';">
-             <a href="https://github.com/CyC2018">CyC2018</a>
+             <img src="assets/github-brands.svg" width="18px">
+             <a href="https://github.com/AZHELLRGX">AZHELLRGX</a>
          </span>
          ·
          <span>
-             <img src="assets/rss-solid.svg" width="18px" onerror="this.style.display = 'none';">
-             <a href="#">My Blog</a>
+             <img src="assets/leetcode.svg" width="18px">
+             <a href="https://leetcode-cn.com/u/azhell/">azhell</a>
          </span>
      </div>
- </center><h2><a name='header-n4' class='md-header-anchor '></a><img src="assets/info-circle-solid.svg" width="30px"> 个人信息 </h2><ul><li>男，1994 年出生</li><li>求职意向：Java 研发工程师</li><li>工作经验：0 年（校招可不填）</li><li>期望薪资：0k（校招可不填）</li></ul><h2><a name='header-n14' class='md-header-anchor '></a><img src="assets/graduation-cap-solid.svg" width="30px"> 教育经历</h2><ul><li>硕士，XXXX大学，计算机科学与技术专业，2016.9~2019.7</li><li>学士，XXXX大学，软件工程专业，2012.9~2016.7</li><li>绩点：***，年级前 100%</li><li>通过了 CET4/6 英语等级考试</li></ul><h2><a name='header-n24' class='md-header-anchor '></a><img src="assets/briefcase-solid.svg" width="30px"> 工作经历</h2><ul><li><p><strong>XXXX 公司，XXXX 部门，XXXX 工程师，2010.1~2010.9</strong></p><p>负责 XXX</p></li></ul><h2><a name='header-n29' class='md-header-anchor '></a><img src="assets/project-diagram-solid.svg" width="30px"> 项目经历</h2><ul><li><p><strong>XXXX 项目</strong></p><p><em>使用到的技术</em></p><p>使用一两句话描述项目的主要功能，然后介绍自己在项目中的角色，解决了什么问题，使用什么方式解决，比别人的方法相比有什么优势（尽量用数据来说明）。</p></li></ul><h2><a name='header-n35' class='md-header-anchor '></a><img src="assets/tools-solid.svg" width="30px"> 技能清单</h2><ul><li>★★★ Java</li><li>★★☆ C++、Python</li><li>★★★ MySQL</li><li>★★★ Redis</li><li>★★☆ Spring</li><li>★☆☆ RabbitMQ、ZooKeeper</li><li>★★☆ JavaScript</li></ul></div>
+ </center><h2><a name="img-srcassetsinfo-circle-solidsvg-width30px-个人信息" class="md-header-anchor"></a><img src="assets/info-circle-solid.svg" width="30px"><span> 个人信息 </span></h2><ul><li><span>男，1996年9月出生</span></li><li><strong><span>求职意向</span></strong><span>：数据仓库开发工程师</span></li><li><strong><span>工作经验</span></strong><span>：3.5 年</span></li><li><strong><span>期望薪资</span></strong><span>：25k~30k</span></li></ul><h2><a name="img-srcassetsgraduation-cap-solidsvg-width30px-教育经历" class="md-header-anchor"></a><img src="assets/graduation-cap-solid.svg" width="30px"><span> 教育经历</span></h2><ul><li><span>学士，三峡大学，计算机科学与技术专业，2014.9~2018.7</span></li></ul><h2><a name="img-srcassetsbriefcase-solidsvg-width30px-工作经历" class="md-header-anchor"></a><img src="assets/briefcase-solid.svg" width="30px"><span> 工作经历</span></h2><ul><li><p><strong><span>深圳名通科技服务有限公司，网优大数据部门，大数据开发工程师，2019.7~至今</span></strong></p><ol start='' ><li><span>负责DataX的二次开发工作，完成多服务器关系型数据库之间的数据同步</span></li><li><span>负责”虚拟路测定位系统”中“常驻用户”模块的需求开发、定位精度优化、数据维护工作</span></li><li><span>负责通用SparkSQL工具”的开发、迭代、优化工作；并完成程序设计文档、操作文档的编写</span></li><li><span>参与联通集团”PMCM数据底座”项目的架构设计、模型设计；使用Flink完成流式数据处理与指标计算</span></li></ol></li></ul><h2><a name="img-srcassetsproject-diagram-solidsvg-width30px-项目经历" class="md-header-anchor"></a><img src="assets/project-diagram-solid.svg" width="30px"><span> 项目经历</span></h2><ul><li><p><strong><span>DataX二次开发</span></strong></p><p><em><span>DataX、Java多线程、SpringBoot</span></em></p><ol start='' ><li><strong><span>项目功能</span></strong><span>：本项目主要完成多台、多种关系型数据库之间的数据自动同步</span></li><li><strong><span>担任角色</span></strong><span>：负责了基于开源的DataX的二次程序开发工作</span></li><li><strong><span>解决问题</span></strong><span>：替代了过去繁琐的跨服务器”数据库脚本+FTP“同步方式，在MSSQL的基础上添加了对Oracle、Mysql、SyBase等数据库的支持，解放了运维与数据库开发人员</span></li><li><strong><span>解决方式</span></strong><span>：阅读了DataX的部分源码，结合DataX的设计思想以及具体业务需求，整合出一款更易使用、更稳定、扩展性性更强的工具</span></li></ol></li></ul><hr /><ul><li><p><strong><span>”常驻用户“项目</span></strong></p><p><em><span>MapReduce、Spark、Hive</span></em></p><ol start='' ><li><strong><span>项目介绍</span></strong><span>：通过运营商客户提供的数据模拟用户常驻地信息，协助基站信号质量监测、市场营销等</span></li><li><strong><span>MapReduce阶段</span></strong><span>：本项目属于“4G虚拟路测定位”系统的一部分，初始阶段使用MapReduce进行需求开发和部署，计算数据量大约为5T【170G * 30天，各省人口不同略有变化】</span></li><li><strong><span>Spark阶段</span></strong><span>：因为涉及到业务算法变更，部门决定开发Spark版本；我参与规划了新的业务计算流程，以及协助拆分子程序，并负责核心模块的开发、调优工作</span></li><li><strong><span>Hive数据优化</span></strong><span>：客户为提高市场营销成功率，要求提高常驻用户的定位精度；我负责将新定型的优化算法转化为HiveSQL【快速迭代，短期使用】，并编写Shell脚本辅助执行、进行HiveSQL的调优</span></li></ol></li></ul><hr /><ul><li><p><strong><span>“联通集团PMCM数据底座”项目</span></strong></p><p><em><span>Flink、Spark、HBase、Kafka、Hive</span></em></p><ol start='' ><li><strong><span>项目介绍</span></strong><span>：联通集团基站运行产生的PMCM数据解码、指标计算</span></li><li><strong><span>担任角色</span></strong><span>：参与了项目结构的模型设计、业务架构设计、技术架构设计；并绘制架构图和流程图</span></li><li><strong><span>数据介绍</span></strong><span>：全国31省份总体解码结果数据量大约为40T、每15分钟【数据粒度】计算指标大约为600个</span></li><li><strong><span>具体实施</span></strong><span>：将通信服务商提供的基站运行过程中的参数、性能数据进行解码，并使用Flink流式计算指标，并将部分指标结果通过Kafka共享；解码详情数据、全量指标结果则存至Hive</span></li></ol></li></ul><h2><a name="img-srcassetstools-solidsvg-width30px-技能清单" class="md-header-anchor"></a><img src="assets/tools-solid.svg" width="30px"><span> 技能清单</span></h2><ul><li><span>★★★★ Java</span></li><li><span>★★★ 数据结构与算法、多线程、JVM</span></li><li><span>★★★ Scala、Spark、Hive、数据仓库</span></li><li><span>★★★ MySQL、Redis、ES、SpringBoot</span></li><li><span>★★☆ Flink、HBase、Kafka、Presto</span></li><li><span>★★    Shell</span></li></ul></div>
 </body>
 </html>
